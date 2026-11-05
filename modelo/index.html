@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta · SR Marcas e Patentes · Agnus Films</title>
+<style>
+:root{
+  --ink:#1e1e1e; --ink-2:#4a4a4a; --muted:#9b9b9b;
+  --paper:#f4f4f4; --card:#ffffff; --line:#e4e4e4;
+  --brand:#f43a0f; --rust:#cd4524; --brown:#633523;
+  --night:#1e1e1e;
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 28px}
+.label{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+.logo{display:block;height:auto}
+
+/* HERO */
+.hero{background:var(--night);color:#fff;padding:28px 0 72px;position:relative;overflow:hidden}
+.hero{border-bottom:4px solid var(--brand)}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.topbar .logo{width:120px;color:var(--brand)}
+.topbar .label{color:#bdb7ae}
+.hero .pre{color:var(--brand);margin-top:88px}
+.hero h1{font-size:clamp(48px,9vw,104px);line-height:.95;font-weight:700;letter-spacing:-.035em;margin-top:18px;max-width:12ch}
+.hero .proj{font-size:clamp(18px,2.4vw,22px);color:#d9d3ca;margin-top:22px;max-width:40ch}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);position:relative;z-index:1}
+.meta .label{color:#8f8a83;font-size:10px}
+.meta p{margin-top:6px;font-size:14px;color:#fff}
+
+/* SECTIONS */
+section{padding:72px 0 0}
+.sec-label{color:var(--rust)}
+h2{font-size:clamp(28px,4vw,40px);line-height:1.08;font-weight:700;letter-spacing:-.02em;margin-top:14px;max-width:22ch}
+.lead p:not(.label){color:var(--ink-2);margin-top:16px;max-width:64ch;font-size:17px}
+
+/* SCOPE */
+.scope{margin-top:32px;display:grid;gap:18px}
+.block{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.block-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:22px 26px;border-bottom:1px solid var(--line)}
+.block-head h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.block-head h3 span{color:var(--brand);margin-right:8px}
+.block-head .sum{font-size:13px;color:var(--muted);text-align:right}
+.inc{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:16px 26px;border-bottom:1px solid var(--line)}
+.inc .label{color:var(--muted);font-size:10px;margin-right:6px}
+.chip{font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);background:#f7f7f7}
+.chip.on{border-color:var(--brand);color:#fff;background:var(--brand)}
+.item{padding:20px 26px;border-bottom:1px solid var(--line)}
+.item h4{font-size:15px;font-weight:700}
+.item p{color:var(--ink-2);font-size:14.5px;margin-top:6px;max-width:68ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:12px;padding:3px 10px;border-radius:6px;background:#efefef;color:var(--ink-2)}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 26px;border-bottom:1px solid var(--line)}
+.price:last-child{border-bottom:0}
+.price .n{font-size:15px;font-weight:700}
+.price .n small{font-weight:400;color:var(--muted);margin-left:8px;font-size:13px}
+.price .v{font-size:20px;font-weight:700;color:var(--brand);white-space:nowrap}
+
+/* INVESTMENT */
+.invest{margin-top:32px;background:var(--night);color:#fff;border-radius:22px;padding:34px}
+.invest-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.invest-top .label{color:#8f8a83}
+.invest-top .label.hl{color:var(--brand)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+.opt{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px;position:relative}
+.opt.best{border:1.5px solid var(--brand);background:transparent}
+.opt .badge{position:absolute;top:-11px;left:20px;background:var(--brand);color:#fff;font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.opt h4{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#d9d3ca;font-weight:500}
+.opt .sub{font-size:13px;color:#8f8a83;margin-top:4px}
+.opt .old{color:#8f8a83;text-decoration:line-through;font-size:16px;margin-top:18px}
+.opt .val{font-size:clamp(34px,5vw,44px);font-weight:700;letter-spacing:-.03em;margin-top:4px;line-height:1}
+.opt .val small{font-size:15px;font-weight:400;color:#bdb7ae;letter-spacing:0;margin-left:4px}
+.opt .det{font-size:13px;color:#bdb7ae;margin-top:12px}
+.opt .det b{color:var(--brand);font-weight:700}
+.invest .note{font-size:13px;color:#8f8a83;margin-top:22px;max-width:70ch}
+
+/* TIMELINE */
+.steps{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.step .k{font-size:28px;font-weight:700;color:var(--brand);letter-spacing:-.02em;line-height:1}
+.step .k small{font-size:13px;color:var(--muted);font-weight:400;margin-left:4px;letter-spacing:0}
+.step p{font-size:14px;color:var(--ink-2);margin-top:10px}
+
+/* CONDITIONS */
+.conds{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cond{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.cond .label{color:var(--rust);font-size:10px}
+.cond p{margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+.valid{display:inline-block;margin-top:18px;font-size:13px;padding:7px 14px;border-radius:999px;background:var(--brand);color:#fff}
+
+/* REFERÊNCIAS */
+.refs{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ref{margin:0}
+.ref.h{grid-column:1/-1}
+.frame{position:relative;border-radius:14px;overflow:hidden;background:#1e1e1e;aspect-ratio:9/16}
+.ref.h .frame{aspect-ratio:16/9}
+.frame video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.frame video:focus{outline:none}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 80% at 30% 20%,#2c2c2c 0%,#1e1e1e 60%,#151515 100%)}
+.ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 2px,transparent 2px 4px)}
+.ph .play{width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative}
+.ph .play::after{content:"";border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;opacity:.85}
+.ph .mark{position:absolute;left:16px;bottom:14px;width:64px;color:var(--brand);opacity:.9}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+a.ph{text-decoration:none;color:#fff;cursor:pointer}
+.ph .watch{position:absolute;right:16px;bottom:14px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#d9d3ca}
+a.ph:hover .play{border-color:var(--brand);background:var(--brand)}
+.vplay{text-decoration:none;position:absolute;inset:0;border:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.45));display:flex;align-items:center;justify-content:center;gap:14px;cursor:pointer;color:#fff;font-family:var(--font)}
+.vplay .play{width:74px;height:74px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.vplay .play::after{content:"";border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.vplay:hover .play{transform:scale(1.06)}
+.vplay .vlabel{font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+@media (max-width:680px){.vplay .play{width:52px;height:52px}.vplay .play::after{border-left-width:13px;border-top-width:8px;border-bottom-width:8px}}
+.ref figcaption{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-2);margin-top:10px}
+
+/* CTA */
+.cta{padding:88px 0 96px}
+.cta-card{background:var(--night);color:#fff;border-radius:24px;padding:64px 32px;text-align:center;position:relative;overflow:hidden}
+.cta-card{border-top:4px solid var(--brand)}
+.cta-card > *{position:relative}
+.cta-card .label{color:var(--brand)}
+.cta h2{margin:14px auto 0;max-width:18ch;color:#fff}
+.cta p:not(.label){color:#bdb7ae;margin-top:12px}
+.btn{display:inline-block;margin-top:28px;background:var(--brand);color:#fff;text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;padding:16px 28px;border-radius:999px;font-weight:500}
+.btn:hover{background:var(--rust)}
+.contact-line{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* FOOTER */
+footer{background:var(--night);color:#8f8a83;padding:48px 0}
+.foot .c{text-align:right;font-size:13px;line-height:1.9;margin-top:14px}
+.foot .c a,.foot .c span.hl{color:var(--brand);text-decoration:none}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.foot .logo{width:180px;color:var(--brand)}
+.foot .tag-line{font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-top:16px;color:#d9d3ca}
+.foot .r{text-align:right;font-size:11px;letter-spacing:.24em;text-transform:uppercase;line-height:2}
+
+@media (max-width:680px){
+  .wrap{padding:0 20px}
+  .meta{grid-template-columns:1fr 1fr}
+  .conds{grid-template-columns:1fr}
+  .block-head{flex-direction:column;gap:4px}
+  .block-head .sum{text-align:left}
+  .invest{padding:24px}
+  .foot .r,.foot .c{text-align:left}
+  .refs{gap:8px}
+  .ref figcaption{font-size:9px;letter-spacing:.16em}
+  .ph .play{width:40px;height:40px}
+  .ph .mark{width:44px;left:10px;bottom:10px}
+  .cta-card{padding:48px 22px}
+  .topbar .label{font-size:9px;letter-spacing:.24em;white-space:nowrap}
+  .topbar .logo{width:96px}
+}
+@media print{
+  body{background:#fff}
+  section,.block,.invest,.cond,.step{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+/* ================================================================
+   DADOS DA PROPOSTA — só este bloco muda de um orçamento para outro
+   ================================================================ */
+const PROPOSTA = {
+  ref: "ORÇ #2026597",
+  versao: "V1",
+  ano: "2026",
+  cliente: "SR Marcas e Patentes",
+  projeto: "Produção de podcast · 6 episódios + 36 cortes verticais",
+  meta: [
+    ["Projeto", "Podcast · 6 episódios"],
+    ["Captação", "6 meias diárias"],
+    ["Validade", "7 dias"],
+    ["Referência", "ORÇ #2026597 · V1"]
+  ],
+
+  titulo: "Conversas que constroem autoridade, episódio a episódio.",
+  intro: [
+    "Seis episódios de podcast gravados com estrutura de estúdio: dois filmmakers, três câmeras e áudio captado em dois microfones, para que cada conversa tenha imagem e som à altura de quem está falando.",
+    "Cada episódio vira um vídeo completo e seis cortes verticais, pensados para circular nas redes ao longo da semana e levar a conversa para além de quem assiste do começo ao fim."
+  ],
+
+  escopo: [
+    {
+      titulo: "Captação",
+      resumo: "6 episódios · até 2h cada",
+      inclui: [["2 filmmakers", true], ["3 câmeras", true], ["2 microfones", true], ["Luz e set", false]],
+      itens: [
+        { nome: "Dia de gravação",
+          desc: "Uma meia diária por episódio, com até 2 horas de conversa gravada. A equipe chega antes para montar set, luz e áudio e deixa tudo pronto para os convidados só sentarem e falarem.",
+          tags: ["até 2h por episódio", "3 ângulos"] },
+        { nome: "Direção de set",
+          desc: "Enquadramentos, cortes de câmera e ritmo pensados para conversa: plano geral, plano de cada participante e detalhes que dão respiro na edição.",
+          tags: ["incluso"] }
+      ]
+    },
+    {
+      titulo: "Pós-produção",
+      resumo: "6 episódios + 36 cortes",
+      inclui: [["Episódio completo", true], ["Cortes verticais", true], ["Cor e som tratados", false], ["Legenda nos cortes", false]],
+      itens: [
+        { nome: "Episódios completos",
+          desc: "Edição de cada episódio de até 1 hora no formato horizontal, com troca de câmeras, tratamento de cor e áudio equilibrado entre os participantes.",
+          tags: ["até 1h", "horizontal", "1 rodada de ajuste"] },
+        { nome: "Cortes para redes",
+          desc: "Seis cortes verticais por episódio, escolhidos pelos melhores momentos da conversa, com legenda e prontos para postar.",
+          tags: ["6 por episódio", "vertical", "legenda"] }
+      ]
+    }
+  ],
+
+  prazos: [
+    ["7", "dias úteis", "Entrega de cada episódio completo após a gravação"],
+    ["10", "dias úteis", "Entrega dos 6 cortes verticais de cada episódio"]
+  ],
+
+  investimento: {
+    titulo: "Investimento",
+    lateral: "Por episódio ou pacote fechado",
+    opcoes: [
+      { titulo: "Por episódio", sub: "1 gravação + 1 episódio + 6 cortes",
+        valor: "R$ 1.600", sufixo: "/ep.", det: "Ideal para começar e validar o formato." },
+      { titulo: "Temporada · 6 episódios", sub: "6 gravações + 6 episódios + 36 cortes",
+        valor: "R$ 9.600", sufixo: "total", det: "Equivale a <b>R$ 1.600 por episódio</b>, com agenda garantida para a temporada.", destaque: "Recomendado" }
+    ],
+    nota: "Os valores incluem equipe, equipamento de imagem e som, direção de set, edição e entrega digital. Deslocamentos fora do DF e locação de estúdio, se necessários, são orçados à parte."
+  },
+
+  referencias: {
+    titulo: "O tom que a gente imagina para o podcast.",
+    texto: "Conversa de verdade, com imagem de cinema: luz pensada, três ângulos e cortes que respeitam o ritmo de quem fala. É essa a linguagem que a gente leva para cada episódio.",
+    videos: [
+      // formato: "v" (vertical 9:16) ou "h" (horizontal 16:9)
+      // src: arquivo de vídeo publicado junto com a página (ex.: "videos/podcast-corte.mp4")
+      { legenda: "Corte vertical", formato: "v", src: "" },
+      { legenda: "Bastidores do set", formato: "v", src: "" },
+      { legenda: "Convidado em destaque", formato: "v", src: "" },
+      { legenda: "Episódio completo", formato: "h", src: "" }
+    ]
+  },
+
+  condicoes: [
+    ["Pagamento", "50% na aprovação da proposta e 50% na entrega final. Na temporada, parcelamento por episódio gravado."],
+    ["Revisões inclusas", "1 rodada de ajuste por episódio e por lote de cortes."],
+    ["Direitos de uso", "Licença total do conteúdo para a SR Marcas e Patentes, sem restrição de prazo ou mídia."],
+    ["Arquivos", "Entrega por link de download. Material bruto guardado por 90 dias após a entrega."]
+  ],
+  validade: "Proposta válida por 7 dias",
+
+  cta: {
+    titulo: "Vamos gravar a primeira conversa?",
+    sub: "Qualquer ajuste de escopo, a gente adapta junto.",
+    botao: "Conheça nosso Instagram",
+    link: "https://www.instagram.com/agnus_films/",
+    whatsapp: "",          // ex.: "5561999999999"
+    contato: "",           // ex.: "+55 61 9 9999-9999"
+    site: "",              // ex.: "agnusfilms.com.br"
+    cidade: "Brasília, DF"
+  }
+};
+
+/* ================================================================
+   TEMPLATE — não precisa mudar
+   ================================================================ */
+const LOGO = `<svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg>`;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad = n => String(n).padStart(2,"0");
+const P = PROPOSTA;
+
+const hero = `
+<header class="hero"><div class="wrap">
+  <div class="topbar">${LOGO}<span class="label">Proposta comercial · ${esc(P.ano)}</span></div>
+  <p class="label pre">Proposta preparada para</p>
+  <h1>${esc(P.cliente)}</h1>
+  <p class="proj">${esc(P.projeto)}</p>
+  <div class="meta">${P.meta.map(([k,v])=>`<div><span class="label">${esc(k)}</span><p>${esc(v)}</p></div>`).join("")}</div>
+</div></header>`;
+
+const projeto = `
+<section><div class="wrap lead">
+  <p class="label sec-label">O projeto</p>
+  <h2>${esc(P.titulo)}</h2>
+  ${P.intro.map(t=>`<p>${esc(t)}</p>`).join("")}
+</div></section>`;
+
+const escopo = `
+<section><div class="wrap">
+  <p class="label sec-label">Escopo do projeto</p>
+  <div class="scope">${P.escopo.map((b,i)=>`
+    <article class="block">
+      <div class="block-head"><h3><span>${pad(i+1)}</span>${esc(b.titulo)}</h3><span class="sum">${esc(b.resumo||"")}</span></div>
+      ${b.inclui&&b.inclui.length?`<div class="inc"><span class="label">Inclui</span>${b.inclui.map(([t,on])=>`<span class="chip${on?" on":""}">${esc(t)}</span>`).join("")}</div>`:""}
+      ${(b.itens||[]).map(it=>`<div class="item"><h4>${esc(it.nome)}</h4><p>${esc(it.desc)}</p>${it.tags?`<div class="tags">${it.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>`:""}</div>`).join("")}
+      ${(b.precos||[]).map(([n,v,s])=>`<div class="price"><span class="n">${esc(n)}${s?`<small>${esc(s)}</small>`:""}</span><span class="v">${esc(v)}</span></div>`).join("")}
+    </article>`).join("")}
+  </div>
+</div></section>`;
+
+const prazos = P.prazos&&P.prazos.length ? `
+<section><div class="wrap">
+  <p class="label sec-label">Prazos de entrega</p>
+  <div class="steps">${P.prazos.map(([k,u,t])=>`<div class="step"><div class="k">${esc(k)}<small>${esc(u)}</small></div><p>${esc(t)}</p></div>`).join("")}</div>
+</div></section>` : "";
+
+const I = P.investimento;
+const invest = `
+<section><div class="wrap">
+  <div class="invest">
+    <div class="invest-top"><span class="label hl">${esc(I.titulo)}</span><span class="label">${esc(I.lateral||"")}</span></div>
+    <div class="opts">${I.opcoes.map(o=>`
+      <div class="opt${o.destaque?" best":""}">
+        ${o.destaque?`<span class="badge">${esc(o.destaque)}</span>`:""}
+        <h4>${esc(o.titulo)}</h4><p class="sub">${esc(o.sub||"")}</p>
+        ${o.de?`<p class="old">${esc(o.de)}</p>`:""}
+        <p class="val"${o.de?"":` style="margin-top:22px"`}>${esc(o.valor)}<small>${esc(o.sufixo||"")}</small></p>
+        ${o.det?`<p class="det">${o.det}</p>`:""}
+      </div>`).join("")}
+    </div>
+    ${I.nota?`<p class="note">${esc(I.nota)}</p>`:""}
+  </div>
+</div></section>`;
+
+const R = P.referencias;
+const CAN_EMBED = location.protocol.startsWith("http") && !/claude|anthropic/i.test(location.hostname);
+function frameHTML(v){
+  if (v.vimeo) {
+    const link = v.link || `https://vimeo.com/${v.vimeo}${v.hash?"/"+v.hash:""}`;
+    if (CAN_EMBED) return `<iframe src="https://player.vimeo.com/video/${esc(v.vimeo)}?${v.hash?"h="+esc(v.hash)+"&":""}title=0&byline=0&portrait=0&color=f43a0f" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${esc(v.legenda)}"></iframe>`;
+    return `<a class="ph" href="${esc(link)}" target="_blank" rel="noopener"><span class="play"></span>${MARK}<span class="watch">Assistir no Vimeo</span></a>`;
+  }
+  if (v.src) return `<video src="${esc(v.src)}"${v.poster?` poster="${esc(v.poster)}"`:""} playsinline preload="metadata"></video><a class="vplay" href="${esc(v.link||"#")}" aria-label="Assistir ${esc(v.legenda)}" onclick="event.preventDefault();const vd=this.previousElementSibling;vd.controls=true;vd.play().catch(()=>{});this.remove();"><span class="play"></span><span class="vlabel">Assistir</span></a>`;
+  return `<div class="ph"><span class="play"></span>${MARK}</div>`;
+}
+const MARK = LOGO.replace('class="logo"','class="mark"');
+const refs = R && R.videos && R.videos.length ? `
+<section><div class="wrap lead">
+  <p class="label sec-label">Referências · Feito pela Agnus</p>
+  <h2>${esc(R.titulo)}</h2>
+  ${R.texto?`<p>${esc(R.texto)}</p>`:""}
+  <div class="refs">${R.videos.map(v=>`
+    <figure class="ref ${v.formato==="h"?"h":"v"}">
+      <div class="frame"${v.ratio?` style="aspect-ratio:${esc(v.ratio)}"`:""}>${frameHTML(v)}</div>
+      <figcaption>${esc(v.legenda)}</figcaption>
+    </figure>`).join("")}
+  </div>
+</div></section>` : "";
+
+const conds = `
+<section><div class="wrap">
+  <p class="label sec-label">Condições</p>
+  <div class="conds">${P.condicoes.map(([k,v])=>`<div class="cond"><span class="label">${esc(k)}</span><p>${esc(v)}</p></div>`).join("")}</div>
+  <span class="valid">${esc(P.validade)}</span>
+</div></section>`;
+
+const C = P.cta;
+const cta = `
+<section class="cta"><div class="wrap"><div class="cta-card">
+  <p class="label">Próximo passo</p>
+  <h2>${esc(C.titulo)}</h2>
+  <p>${esc(C.sub)}</p>
+  <a class="btn" href="${C.link?esc(C.link):(C.whatsapp?`https://wa.me/${esc(C.whatsapp)}?text=${encodeURIComponent("Olá! Quero seguir com a proposta "+P.ref+" da Agnus.")}`:"#")}" target="_blank" rel="noopener">${esc(C.botao)}</a>
+</div></div></section>`;
+
+const footer = `
+<footer><div class="wrap foot">
+  <div>${LOGO}<p class="tag-line">Eternizando instantes em memórias</p></div>
+  <div><div class="r">The Story Company<br>Produtora audiovisual<br>Brasília // BSB // Brasil</div>
+  ${(C.contato||C.site)?`<div class="c">${esc(C.cidade||"")}<br><span class="hl">${[C.contato?(C.link?`<a href="${esc(C.link)}" target="_blank" rel="noopener">${esc(C.contato)}</a>`:esc(C.contato)):"",C.site?esc(C.site):""].filter(Boolean).join(" · ")}</span></div>`:""}</div>
+</div></footer>`;
+
+document.getElementById("app").innerHTML = hero + projeto + escopo + prazos + invest + refs + conds + cta + footer;
+document.title = `Proposta · ${P.cliente} · Agnus Films`;
+</script>
+</body>
+</html>
