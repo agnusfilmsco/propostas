@@ -111,7 +111,9 @@ h2{font-size:clamp(28px,4vw,40px);line-height:1.08;font-weight:700;letter-spacin
 a.ph{text-decoration:none;color:#fff;cursor:pointer}
 .ph .watch{position:absolute;right:16px;bottom:14px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#d9d3ca}
 a.ph:hover .play{border-color:var(--brand);background:var(--brand)}
-.vplay{text-decoration:none;position:absolute;inset:0;border:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.45));display:flex;align-items:center;justify-content:center;gap:14px;cursor:pointer;color:#fff;font-family:var(--font)}
+.vplay{text-decoration:none;position:absolute;inset:0;border:0;background:none;display:flex;align-items:center;justify-content:center;gap:14px;cursor:pointer;color:#fff;font-family:var(--font)}
+.vplay::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff 35%,#F43A0F 100%);mix-blend-mode:multiply;pointer-events:none}
+.vplay>*{position:relative;z-index:1}
 .vplay .play{width:74px;height:74px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
 .vplay .play::after{content:"";border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
 .vplay:hover .play{transform:scale(1.06)}
