@@ -273,9 +273,9 @@ const PROPOSTA = {
     lateral: "Duas opções de equipe",
     opcoes: [
       { titulo: "Equipe completa", sub: "3 profissionais no set: fotógrafo, filmmaker do aftermovie e filmmaker dedicado aos depoimentos",
-        valor: "R$ 14.000", sufixo: "total", det: "Depoimentos formais gravados <b>em paralelo à programação</b>, sem tirar a câmera do aftermovie de nenhum momento.", destaque: "Escopo completo" },
+        valor: "R$ 14.000,00", sufixo: "total", det: "Depoimentos formais gravados <b>em paralelo à programação</b>, sem tirar a câmera do aftermovie de nenhum momento.", destaque: "Escopo completo" },
       { titulo: "Equipe reduzida", sub: "2 profissionais no set: fotógrafo e filmmaker que grava aftermovie e depoimentos",
-        valor: "R$ 12.000", sufixo: "total", det: "Mesmas entregas, com os depoimentos formais <b>gravados em blocos combinados</b> nos intervalos da programação." }
+        valor: "R$ 12.000,00", sufixo: "total", det: "Mesmas entregas, com os depoimentos formais <b>gravados em blocos combinados</b> nos intervalos da programação." }
     ],
     nota: "As duas opções incluem as entregas completas do briefing: mínimo de 800 fotos tratadas, aftermovie de até 5 min e até 10 depoimentos individuais, além de planejamento, equipamento, alimentação da equipe e deslocamento dentro do DF. Gravação de depoimentos no dia 27/11 pode ser incluída à parte."
   },
@@ -455,7 +455,7 @@ document.title = `Proposta · ${P.cliente} · Agnus Films`;
     requestAnimationFrame(step);
   };
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
-    e.target.classList.add("in"); e.target.querySelectorAll&&e.target.querySelectorAll(".val").forEach(count); io.unobserve(e.target);}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    e.target.classList.add("in"); io.unobserve(e.target);}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
   els.forEach(el=>io.observe(el));
 })();
 </script>
