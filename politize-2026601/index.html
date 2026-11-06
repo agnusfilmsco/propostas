@@ -168,6 +168,28 @@ footer{background:var(--night);color:#8f8a83;padding:48px 0}
   section,.block,.invest,.cond,.step{break-inside:avoid}
 }
 .hlw{background:var(--brand)!important;color:#fff!important;padding:0 .28em;border-radius:4px;font-weight:600;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* ===== Animações sutis (desligadas no PDF e para quem prefere menos movimento) ===== */
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(244,58,15,.45)}70%{box-shadow:0 0 0 16px rgba(244,58,15,0)}100%{box-shadow:0 0 0 0 rgba(244,58,15,0)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+html.anim .hero .topbar{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+html.anim .hero .pre{animation:up .8s .15s cubic-bezier(.2,.7,.2,1) both}
+html.anim .hero h1{animation:up 1s .25s cubic-bezier(.2,.7,.2,1) both}
+html.anim .hero .proj{animation:up .9s .45s cubic-bezier(.2,.7,.2,1) both}
+html.anim .hero .meta>div{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+html.anim .hero .meta>div:nth-child(1){animation-delay:.6s}html.anim .hero .meta>div:nth-child(2){animation-delay:.68s}
+html.anim .hero .meta>div:nth-child(3){animation-delay:.76s}html.anim .hero .meta>div:nth-child(4){animation-delay:.84s}
+html.anim .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+html.anim .rv.in{opacity:1;transform:none}
+html.anim .vplay .play{animation:ring 2.6s 1.2s infinite}
+html.anim .block,html.anim .step,html.anim .cond,html.anim .opt{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease;transition-delay:var(--d,0s)}
+html.anim .block.in:hover,html.anim .step.in:hover,html.anim .cond.in:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(30,30,30,.08);transition-delay:0s}
+html.anim .opt.in:hover{transform:translateY(-4px);border-color:var(--brand);transition-delay:0s}
+html.anim .frame video,html.anim .frame img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+html.anim .frame:hover video{transform:scale(1.02)}
+html.anim .btn{transition:background .3s ease,transform .3s ease}
+html.anim .btn:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
@@ -410,6 +432,32 @@ document.getElementById("app").innerHTML = hero + projeto + escopo + prazos + in
     n.parentNode.replaceChild(f,n);});
 })();
 document.title = `Proposta · ${P.cliente} · Agnus Films`;
+
+/* Animações sutis */
+(function(){
+  const pdf=/[?&]pdf\b/.test(location.search);
+  const calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(pdf||calm||!("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("anim");
+  const sel=["section .wrap > .label","section .wrap > h2","section .wrap.lead > p",".block",".step",".invest",".opt",".ref",".cond",".cta-card"];
+  const els=[...document.querySelectorAll(sel.join(","))];
+  els.forEach(el=>{
+    el.classList.add("rv");
+    const sib=[...el.parentElement.children].filter(c=>c.matches(sel.join(",")));
+    const i=Math.max(0,sib.indexOf(el)); el.style.setProperty("--d",Math.min(i,5)*0.08+"s");
+  });
+  const fmt=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
+  const count=el=>{
+    const t=el.firstChild; if(!t||t.nodeType!==3) return;
+    const alvo=parseInt(t.nodeValue.replace(/\D/g,""),10); if(!alvo) return;
+    const ini=performance.now(),dur=1100;
+    const step=now=>{const p=Math.min(1,(now-ini)/dur),e=1-Math.pow(1-p,3);t.nodeValue=fmt(alvo*(0.82+0.18*e));if(p<1)requestAnimationFrame(step);else t.nodeValue=fmt(alvo);};
+    requestAnimationFrame(step);
+  };
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+    e.target.classList.add("in"); e.target.querySelectorAll&&e.target.querySelectorAll(".val").forEach(count); io.unobserve(e.target);}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  els.forEach(el=>io.observe(el));
+})();
 </script>
 </body>
 </html>
