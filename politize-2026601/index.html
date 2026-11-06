@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Proposta · Politize! · Agnus Films">
 <meta property="og:description" content="8º Encontro Nacional: fotos, aftermovie e depoimentos. ORÇ #2026601">
-<meta property="og:image" content="https://agnusfilmsco.github.io/propostas/grupo-attos-2026599/media/demoreel-capa.jpg">
+<meta property="og:image" content="https://agnusfilmsco.github.io/propostas/politize-2026601/media/demoreel-eventos-capa.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1e1e1e">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -167,6 +167,7 @@ footer{background:var(--night);color:#8f8a83;padding:48px 0}
   body{background:#fff}
   section,.block,.invest,.cond,.step{break-inside:avoid}
 }
+.hlw{background:var(--brand)!important;color:#fff!important;padding:0 .28em;border-radius:4px;font-weight:600;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 </style>
 </head>
 <body>
@@ -178,6 +179,7 @@ footer{background:var(--night);color:#8f8a83;padding:48px 0}
    ================================================================ */
 const PROPOSTA = {
   ref: "ORÇ #2026601",
+  destaques: ["aftermovie"],
   versao: "V1",
   ano: "2026",
   cliente: "POLITIZE!",
@@ -226,11 +228,11 @@ const PROPOSTA = {
     {
       titulo: "Depoimentos individuais",
       resumo: "Até 10 pessoas indicadas pela Politize!",
-      inclui: [["Depoimentos formais", true], ["Depoimentos informais", true], ["Entrega separada", false], ["Tratamento de imagem e áudio", false]],
+      inclui: [["Depoimentos formais", true], ["Depoimentos informais", true], ["Cor e áudio tratados", false], ["Entrega separada", false]],
       itens: [
         { nome: "Formais, em ambientes variados",
-          desc: "Gravação programada com as pessoas e perguntas indicadas por vocês, em cantos diferentes do espaço para fugir do padrão de todos sentados no mesmo fundo. Pílulas de 2:50 a 5 min, entregues uma a uma com tratamento de imagem e áudio.",
-          tags: ["até 10 pessoas", "2:50 a 5 min", "áudio direto"] },
+          desc: "Gravação programada com as pessoas e perguntas indicadas por vocês, em cantos diferentes do espaço para fugir do padrão de todos sentados no mesmo fundo. Cada depoimento é entregue na íntegra, sem cortes de edição, com correção de cor, tratamento de áudio e exportação individual.",
+          tags: ["até 10 pessoas", "sem edição", "cor e áudio"] },
         { nome: "Informais, no meio do evento",
           desc: "Falas rápidas captadas em contexto durante a programação, com participantes indicados e outros que a gente aborda na hora. Elas alimentam o aftermovie.",
           tags: ["no contexto", "para o aftermovie"] }
@@ -240,7 +242,7 @@ const PROPOSTA = {
 
   prazos: [
     ["5", "dias úteis", "Seleção de fotos tratadas após o evento"],
-    ["10", "dias úteis", "Depoimentos individuais editados"],
+    ["5", "dias úteis", "Depoimentos com cor e áudio tratados"],
     ["15", "dias úteis", "Primeira versão do aftermovie"]
   ],
 
@@ -249,24 +251,25 @@ const PROPOSTA = {
     lateral: "Duas opções de equipe",
     opcoes: [
       { titulo: "Equipe completa", sub: "3 profissionais no set: fotógrafo, filmmaker do aftermovie e filmmaker dedicado aos depoimentos",
-        valor: "R$ 18.000", sufixo: "total", det: "Depoimentos formais gravados <b>em paralelo à programação</b>, sem tirar a câmera do aftermovie de nenhum momento.", destaque: "Escopo completo" },
+        valor: "R$ 14.000", sufixo: "total", det: "Depoimentos formais gravados <b>em paralelo à programação</b>, sem tirar a câmera do aftermovie de nenhum momento.", destaque: "Escopo completo" },
       { titulo: "Equipe reduzida", sub: "2 profissionais no set: fotógrafo e filmmaker que grava aftermovie e depoimentos",
-        valor: "R$ 14.450", sufixo: "total", det: "Mesmas entregas, com os depoimentos formais <b>gravados em blocos combinados</b> nos intervalos da programação." }
+        valor: "R$ 12.000", sufixo: "total", det: "Mesmas entregas, com os depoimentos formais <b>gravados em blocos combinados</b> nos intervalos da programação." }
     ],
     nota: "As duas opções incluem as entregas completas do briefing: mínimo de 800 fotos tratadas, aftermovie de até 5 min e até 10 depoimentos individuais, além de planejamento, equipamento, alimentação da equipe e deslocamento dentro do DF. Gravação de depoimentos no dia 27/11 pode ser incluída à parte."
   },
 
   referencias: {
     titulo: "O olhar que a gente leva para o Encontro.",
-    texto: "Um recorte do que a Agnus fez em 2026. Gente real, emoção e câmera atenta aos detalhes: é essa a linguagem que a gente quer para os voluntários da Politize!.",
+    texto: "Um recorte dos eventos e campanhas que a Agnus fez em 2026. Gente real, emoção e câmera atenta aos detalhes: é essa a linguagem que a gente quer para os voluntários da Politize!.",
     videos: [
+      { legenda: "Demoreel · Eventos Agnus 2026", formato: "h", ratio: "2.35/1", src: "media/demoreel-eventos-2026.mp4", poster: "media/demoreel-eventos-capa.jpg" },
       { legenda: "Demoreel · Campanhas Agnus 2026", formato: "h", ratio: "2.39/1", src: "../grupo-attos-2026599/media/demoreel-campanhas-2026.mp4", poster: "../grupo-attos-2026599/media/demoreel-capa.jpg", link: "https://vimeo.com/1211468661/de5f212e0d" }
     ]
   },
 
   condicoes: [
     ["Pagamento", "50% de sinal na aprovação da proposta e 50% na entrega do material."],
-    ["Revisões inclusas", "2 rodadas de ajuste no aftermovie e 1 nos depoimentos."],
+    ["Revisões inclusas", "2 rodadas de ajuste no aftermovie."],
     ["Entrega", "Arquivos por link de download em alta resolução, organizados por dia e por entrega."],
     ["Direitos de uso", "Licença total do material para a Politize!, sem restrição de prazo ou mídia. Fotos liberadas também para os voluntários presentes."]
   ],
@@ -394,6 +397,18 @@ const footer = `
 </div></footer>`;
 
 document.getElementById("app").innerHTML = hero + projeto + escopo + prazos + invest + refs + conds + cta + footer;
+/* Palavras em destaque (PROPOSTA.destaques) */
+(function(){
+  const words=(PROPOSTA.destaques||[]).filter(Boolean); if(!words.length) return;
+  const re=new RegExp("("+words.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")","gi");
+  const walker=document.createTreeWalker(document.getElementById("app"),NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    const p=n.parentElement; if(!p||p.closest("script,style,.hlw,a,.badge,.tag,.chip")) return NodeFilter.FILTER_REJECT;
+    re.lastIndex=0; return re.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n=>{const f=document.createDocumentFragment(); n.nodeValue.split(re).forEach((part,i)=>{
+    if(i%2){const s=document.createElement("span");s.className="hlw";s.textContent=part;f.appendChild(s);} else if(part) f.appendChild(document.createTextNode(part));});
+    n.parentNode.replaceChild(f,n);});
+})();
 document.title = `Proposta · ${P.cliente} · Agnus Films`;
 </script>
 </body>

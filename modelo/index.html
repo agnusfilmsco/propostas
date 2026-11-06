@@ -162,6 +162,7 @@ footer{background:var(--night);color:#8f8a83;padding:48px 0}
   body{background:#fff}
   section,.block,.invest,.cond,.step{break-inside:avoid}
 }
+.hlw{background:var(--brand)!important;color:#fff!important;padding:0 .28em;border-radius:4px;font-weight:600;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 </style>
 </head>
 <body>
@@ -172,6 +173,7 @@ footer{background:var(--night);color:#8f8a83;padding:48px 0}
    DADOS DA PROPOSTA — só este bloco muda de um orçamento para outro
    ================================================================ */
 const PROPOSTA = {
+  destaques: [], // palavras que ganham destaque laranja no texto
   ref: "ORÇ #2026597",
   versao: "V1",
   ano: "2026",
@@ -379,6 +381,18 @@ const footer = `
 </div></footer>`;
 
 document.getElementById("app").innerHTML = hero + projeto + escopo + prazos + invest + refs + conds + cta + footer;
+/* Palavras em destaque (PROPOSTA.destaques) */
+(function(){
+  const words=(PROPOSTA.destaques||[]).filter(Boolean); if(!words.length) return;
+  const re=new RegExp("("+words.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")","gi");
+  const walker=document.createTreeWalker(document.getElementById("app"),NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    const p=n.parentElement; if(!p||p.closest("script,style,.hlw,a,.badge,.tag,.chip")) return NodeFilter.FILTER_REJECT;
+    re.lastIndex=0; return re.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n=>{const f=document.createDocumentFragment(); n.nodeValue.split(re).forEach((part,i)=>{
+    if(i%2){const s=document.createElement("span");s.className="hlw";s.textContent=part;f.appendChild(s);} else if(part) f.appendChild(document.createTextNode(part));});
+    n.parentNode.replaceChild(f,n);});
+})();
 document.title = `Proposta · ${P.cliente} · Agnus Films`;
 </script>
 </body>
