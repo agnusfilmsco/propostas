@@ -57,7 +57,7 @@ button{font:inherit;cursor:pointer}
 .credits{margin-top:14px;background:var(--ink);color:#fff;border-radius:26px;padding:38px 28px 34px;text-align:center}
 .credits .pres{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#a9a39c}
 .credits .big{font-size:clamp(22px,3.6vw,34px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin-top:6px;line-height:1.1}
-.credits .big em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;color:var(--brand);letter-spacing:0}
+.credits .big.talent{color:var(--brand)}
 .credits .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
 .credits dt{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:#8f8a83}
 .credits dd{font-size:15px;font-weight:700;margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
@@ -123,10 +123,12 @@ h2{font-size:clamp(30px,5vw,46px);line-height:1.02;font-weight:800;letter-spacin
 .shot.st-refazer{border-color:var(--brown);box-shadow:0 0 0 1px var(--brown) inset}
 .shot.st-cliente{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink) inset}
 .shot.hide{display:none}
-.shot .thumbs{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px;background:var(--ink);aspect-ratio:4/3;overflow:hidden;position:relative}
+.shot .thumbs{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px;background:var(--ink);aspect-ratio:1/1;overflow:hidden;position:relative}
 .shot .thumbs figure{position:relative;overflow:hidden}
 .shot .thumbs img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.1,1)}
-.shot:hover .thumbs img{transform:scale(1.05)}
+.shot.in .thumbs img{animation:kb 2.4s cubic-bezier(.2,.7,.1,1)}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+@media (hover:hover){.shot:hover .thumbs img{transform:scale(1.06)}}
 .shot .thumbs figcaption{position:absolute;left:6px;bottom:6px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.72);padding:3px 7px;border-radius:5px}
 .shot .thumbs figcaption.n{background:var(--brand)}
 .shot .done{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(244,58,15,.6);color:#fff;font-weight:800;font-size:15px;letter-spacing:.2em;text-transform:uppercase;opacity:0;transition:opacity .35s;pointer-events:none}
@@ -183,14 +185,25 @@ footer .logo{width:100%;color:#fff;margin-top:48px}
 footer .micro{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
 footer a{color:#fff}
 
+/* EDIÇÃO */
+.editbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.ebtn{font-size:12px;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink)}
+.ebtn.on{background:var(--ink);color:#fff}
+.ebtn.ghost{border-color:var(--line);color:var(--ink-2);font-weight:500}
+.editing [data-k]{outline:1.5px dashed var(--brand);outline-offset:4px;border-radius:4px;cursor:text}
+.editing [data-k]:focus{outline-style:solid;background:rgba(244,58,15,.05)}
+[data-k].edited:after{content:"editado";display:inline-block;margin-left:8px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);font-weight:700;vertical-align:middle}
+.editing [data-k].edited:after{display:none}
+.nav .ebtn{padding:6px 12px;font-size:11px}
+
 /* TOAST */
-.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,160%);background:var(--ink);color:#fff;font-size:13px;padding:11px 18px;border-radius:999px;transition:transform .35s;z-index:30}
-.toast.show{transform:translate(-50%,0)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;visibility:hidden;background:var(--ink);color:#fff;font-size:13px;padding:11px 18px;border-radius:999px;transition:transform .35s,opacity .35s,visibility .35s;z-index:30}
+.toast.show{transform:translate(-50%,0);opacity:1;visibility:visible}
 
 /* ANIMAÇÃO DE ENTRADA */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.1,1),transform .9s cubic-bezier(.2,.7,.1,1)}
 .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cover h1 .w{animation:none;opacity:1;transform:none}.card-cover:after{animation:none}}
+@media (prefers-reduced-motion:reduce){.shot.in .thumbs img{animation:none}.rv{opacity:1;transform:none;transition:none}.cover h1 .w{animation:none;opacity:1;transform:none}.card-cover:after{animation:none}}
 
 @media (max-width:760px){
   .card-cover{min-height:600px;padding:22px}
@@ -204,7 +217,7 @@ footer a{color:#fff}
 </style>
 </head>
 <body>
-<nav class="nav" id="nav"><div class="wrap"><svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg><div class="links" id="navlinks"></div><span class="prog" id="navprog"></span></div></nav>
+<nav class="nav" id="nav"><div class="wrap"><svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg><div class="links" id="navlinks"></div><span class="prog" id="navprog"></span><button class="ebtn" id="editNav">Editar</button></div></nav>
 <div id="app"></div>
 <div class="toast" id="toast"></div>
 <template id="logo-tpl"><svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg></template>
@@ -230,11 +243,11 @@ const STATUS=[["pendente","Pendente"],["gravado","Gravado"],["refazer","Refazer"
 const KEY="agnus-pre-"+PRE.id;
 
 /* estado: s = status por plano, c = checklist. Salvo neste aparelho e compartilhável pelo link. */
-let S={s:{},c:{}};
+let S={s:{},c:{},e:{}};
 function load(){
-  try{ const o=JSON.parse(localStorage.getItem(KEY)||"{}"); S={s:o.s||{},c:o.c||{}}; }catch(e){}
+  try{ const o=JSON.parse(localStorage.getItem(KEY)||"{}"); S={s:o.s||{},c:o.c||{},e:o.e||{}}; }catch(e){}
   const m=location.hash.match(/#st=([^&]+)/);
-  if(m){ try{ const o=JSON.parse(decodeURIComponent(atob(m[1]))); S={s:o.s||{},c:o.c||{}}; save(); }catch(e){} history.replaceState(null,"",location.pathname+location.search); }
+  if(m){ try{ const o=JSON.parse(decodeURIComponent(atob(m[1]))); S={s:o.s||{},c:o.c||{},e:o.e||{}}; save(); }catch(e){} history.replaceState(null,"",location.pathname+location.search); }
 }
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
 function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2200); }
@@ -250,7 +263,7 @@ function render(P){
   </div>
   <div class="credits rv"><p class="pres">Uma produção</p><p class="big">${esc(P.creditos.produtora)}</p>
     <p class="pres" style="margin-top:18px">para</p><p class="big">${esc(P.creditos.para)}</p>
-    <p class="pres" style="margin-top:18px">com</p><p class="big"><em>${esc(P.creditos.com)}</em></p>
+    <p class="pres" style="margin-top:18px">com</p><p class="big talent">${esc(P.creditos.com)}</p>
     <dl class="grid">${P.creditos.itens.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="${/a confirmar/i.test(v)?'tbd':''}">${esc(v)}</dd></div>`).join('')}</dl>
   </div></div></header>`);
   h.push(`<section id="visao"><div class="wrap"><span class="label sec-label rv">Visão geral</span>
@@ -259,9 +272,10 @@ function render(P){
   </div></section>`);
   if(P.atos.length) h.push(`<section id="roteiro"><div class="wrap"><span class="label sec-label rv">Roteiro em três atos</span><h2 class="rv">${it(P.roteiro_titulo||"O que ele fala e o que a gente mostra.")}</h2>
     ${P.roteiro_intro?`<p class="lead rv">${esc(P.roteiro_intro)}</p>`:''}
-    <div class="script">${P.atos.map(a=>`<div class="act rv"><div class="when"><span class="label">${esc(a.rotulo)}</span><h3>${esc(a.nome)}</h3><span class="time">${esc(a.tempo)}</span></div>
-      <div><blockquote>${esc(a.fala)}</blockquote><p class="img"><b>Imagem:</b> ${esc(a.imagem)}</p></div></div>`).join('')}</div>
-    ${P.alternativas.itens.length?`<div class="alts rv"><span class="label">${esc(P.alternativas.titulo)}</span><ul>${P.alternativas.itens.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
+    <div class="editbar rv"><button class="ebtn" id="editBtn">Editar textos</button><button class="ebtn ghost" id="restore">Restaurar original</button><span class="note" id="editNote">Toque em “Editar textos”, escreva direto na página e toque em “Concluir”.</span></div>
+    <div class="script">${P.atos.map((a,i)=>`<div class="act rv"><div class="when"><span class="label">${esc(a.rotulo)}</span><h3>${esc(a.nome)}</h3><span class="time">${esc(a.tempo)}</span></div>
+      <div><blockquote data-k="ato.${i}.fala">${esc(a.fala)}</blockquote><p class="img"><b>Imagem:</b> <span data-k="ato.${i}.imagem">${esc(a.imagem)}</span></p></div></div>`).join('')}</div>
+    ${P.alternativas.itens.length?`<div class="alts rv"><span class="label">${esc(P.alternativas.titulo)}</span><ul>${P.alternativas.itens.map((x,i)=>`<li data-k="alt.${i}">${esc(x)}</li>`).join('')}</ul></div>`:''}
   </div></section>`);
   if(P.shots.length) h.push(`<section id="shots"><div class="wrap"><span class="label sec-label rv">Shot list</span><h2 class="rv">${it(P.shots_titulo||"Plano a plano, com referência.")}</h2>
     ${P.shots_intro?`<p class="lead rv">${esc(P.shots_intro)}</p>`:''}
@@ -269,14 +283,14 @@ function render(P){
       <div class="filters">${[["todos","Todos"],...STATUS].map(([k,l],i)=>`<button class="fbtn ${i?'':'on'}" data-f="${k}">${l}</button>`).join('')}</div></div>
       <div class="bar"><i id="bar"></i></div>
       <div class="row"><div class="legend">${STATUS.map(([k,l])=>`<span class="tag t-${k}">${l}</span>`).join('')}</div>
-      <div style="display:flex;gap:8px"><button class="share ghost" id="reset">Zerar</button><button class="share" id="share">Copiar link com o status</button></div></div>
-      <p class="note">Toque na tag de cada plano para marcar. O status fica salvo neste aparelho; para mostrar à equipe ou ao cliente, use “Copiar link com o status” e envie o link.</p>
+      <div style="display:flex;gap:8px"><button class="share ghost" id="reset">Zerar</button><button class="share" id="share">Copiar link atualizado</button></div></div>
+      <p class="note">Toque na tag de cada plano para marcar. O status fica salvo neste aparelho; para mostrar à equipe ou ao cliente, use “Copiar link atualizado”: o link leva o status e os textos editados.</p>
     </div>
     <div class="shots">${P.shots.map(s=>`<article class="shot rv" data-n="${esc(s.n)}">
       <div class="thumbs">${(s.refs||[]).map(r=>`<figure><img loading="lazy" src="${esc(r.src)}" alt=""><figcaption class="${r.tipo==='Nicho'?'n':''}">${esc(r.tipo)}</figcaption></figure>`).join('')}<div class="done">✓ Gravado</div></div>
       <div class="body"><div class="top"><span class="num">${esc(s.n)}</span><span class="ato">${esc(s.ato)}</span></div>
-      <h4>${esc(s.titulo)}</h4><p class="k"><b>Plano:</b> ${esc(s.plano)}</p><p class="k"><b>Movimento:</b> ${esc(s.mov)}</p><p class="k"><b>Onde:</b> ${esc(s.onde)}</p>
-      ${s.aparece?`<div class="ap"><b>Precisa aparecer</b>${esc(s.aparece)}</div>`:''}
+      <h4 data-k="shot.${esc(s.n)}.titulo">${esc(s.titulo)}</h4><p class="k"><b>Plano:</b> <span data-k="shot.${esc(s.n)}.plano">${esc(s.plano)}</span></p><p class="k"><b>Movimento:</b> <span data-k="shot.${esc(s.n)}.mov">${esc(s.mov)}</span></p><p class="k"><b>Onde:</b> <span data-k="shot.${esc(s.n)}.onde">${esc(s.onde)}</span></p>
+      ${s.aparece?`<div class="ap"><b>Precisa aparecer</b><span data-k="shot.${esc(s.n)}.aparece">${esc(s.aparece)}</span></div>`:''}
       ${s.fonte?`<p class="src">Ref.: ${esc(s.fonte)}</p>`:''}
       <div class="status">${STATUS.map(([k,l])=>`<button class="tag t-${k}" data-s="${k}">${l}</button>`).join('')}</div></div></article>`).join('')}</div>
   </div></section>`);
@@ -286,10 +300,10 @@ function render(P){
   </div></section>`);
   if(P.ordem.length) h.push(`<section id="ordem"><div class="wrap"><span class="label sec-label rv">Ordem do dia</span><h2 class="rv">${it(P.ordem_titulo||"O dia de gravação.")}</h2>
     ${P.ordem_intro?`<p class="lead rv">${esc(P.ordem_intro)}</p>`:''}
-    <div class="timeline rv">${P.ordem.map(([t,a,b])=>`<div class="slot"><span class="h">${esc(t)}</span><div><h4>${esc(a)}</h4><p>${esc(b)}</p></div></div>`).join('')}</div>
+    <div class="timeline rv">${P.ordem.map(([t,a,b],i)=>`<div class="slot"><span class="h" data-k="ordem.${i}.h">${esc(t)}</span><div><h4 data-k="ordem.${i}.t">${esc(a)}</h4><p data-k="ordem.${i}.p">${esc(b)}</p></div></div>`).join('')}</div>
   </div></section>`);
   if(P.checklist.length) h.push(`<section id="checklist"><div class="wrap"><span class="label sec-label rv">Antes de gravar</span><h2 class="rv">Checklist.</h2>
-    <div class="checks rv">${P.checklist.map((x,i)=>`<label class="chk"><input type="checkbox" data-c="${i}"><span>${esc(x)}</span></label>`).join('')}</div>
+    <div class="checks rv">${P.checklist.map((x,i)=>`<label class="chk"><input type="checkbox" data-c="${i}"><span data-k="chk.${i}">${esc(x)}</span></label>`).join('')}</div>
   </div></section>`);
   h.push(`<footer><div class="wrap"><p class="tag2 rv">Contando histórias que a <em>(flecha do tempo)</em> não pode apagar.</p>${LOGO}
     <div class="micro"><span>${esc(P.rodape)}</span><a href="https://www.instagram.com/agnus_films/">@agnus_films</a></div></div></footer>`);
@@ -310,6 +324,20 @@ function paint(){
   document.getElementById('navprog').textContent=tot?`${n}/${tot} gravados`:"";
   document.querySelectorAll('.chk input').forEach(i=>i.checked=!!S.c[i.dataset.c]);
 }
+function applyEdits(){
+  document.querySelectorAll('[data-k]').forEach(el=>{
+    if(el.dataset.orig===undefined) el.dataset.orig=el.textContent;
+    const v=S.e[el.dataset.k];
+    if(v!=null && v!==el.dataset.orig){ el.textContent=v; el.classList.add('edited'); } else { el.textContent=el.dataset.orig; el.classList.remove('edited'); }
+  });
+}
+let EDIT=false;
+function setEdit(on){
+  EDIT=on; document.body.classList.toggle('editing',on);
+  document.querySelectorAll('[data-k]').forEach(el=>{ if(!on){ el.removeAttribute('contenteditable'); return; } try{ el.contentEditable="plaintext-only"; }catch(_){ el.contentEditable="true"; } if(el.contentEditable!=="plaintext-only") el.contentEditable="true"; });
+  ['editBtn','editNav'].forEach(id=>{ const b=document.getElementById(id); if(b){ b.classList.toggle('on',on); b.textContent=on?"Concluir":(id==='editNav'?"Editar":"Editar textos"); } });
+  if(!on){ save(); applyEdits(); toast("Textos salvos neste aparelho"); }
+}
 function applyFilter(){
   const on=document.querySelector('.fbtn.on'); const f=on?on.dataset.f:"todos";
   document.querySelectorAll('.shot').forEach(el=>el.classList.toggle('hide',f!=="todos"&&!el.classList.contains("st-"+f)));
@@ -320,12 +348,17 @@ function bind(){
     if(b){ const n=b.closest('.shot').dataset.n; S.s[n]=b.dataset.s; save(); paint(); applyFilter(); return; }
     const f=e.target.closest('.fbtn');
     if(f){ document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===f)); applyFilter(); return; }
+    if(e.target.id==="editBtn"||e.target.id==="editNav"){ setEdit(!EDIT); return; }
+    if(e.target.id==="restore"){ if(confirm("Voltar todos os textos para a versão original?")){ S.e={}; save(); applyEdits(); toast("Textos originais restaurados"); } return; }
+    if(EDIT&&e.target.closest('.chk')&&e.target.closest('[data-k]')){ e.preventDefault(); return; }
     if(e.target.id==="share"){
       const url=location.origin+location.pathname+"#st="+btoa(encodeURIComponent(JSON.stringify(S)));
-      (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>toast("Link com o status copiado")).catch(()=>{prompt("Copie o link:",url)});
+      (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>toast("Link atualizado copiado")).catch(()=>{prompt("Copie o link:",url)});
     }
-    if(e.target.id==="reset"){ if(confirm("Zerar o status de todos os planos e do checklist neste aparelho?")){ S={s:{},c:{}}; save(); paint(); applyFilter(); toast("Status zerado"); } }
+    if(e.target.id==="reset"){ if(confirm("Zerar o status de todos os planos e do checklist neste aparelho?")){ S.s={}; S.c={}; save(); paint(); applyFilter(); toast("Status zerado"); } }
   });
+  document.addEventListener('input',e=>{ const el=e.target.closest('[data-k]'); if(el&&EDIT){ const v=el.textContent; if(v===el.dataset.orig) delete S.e[el.dataset.k]; else S.e[el.dataset.k]=v; save(); } });
+  document.addEventListener('keydown',e=>{ if(EDIT&&e.key==="Enter"&&!e.shiftKey&&e.target.closest('[data-k]')){ e.preventDefault(); e.target.blur(); } });
   document.addEventListener('change',e=>{ if(e.target.matches('.chk input')){ S.c[e.target.dataset.c]=e.target.checked; save(); } });
   if('IntersectionObserver' in window){
     const io=new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }),{threshold:.1,rootMargin:"0px 0px -30px 0px"});
@@ -335,7 +368,7 @@ function bind(){
   } else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
 }
 
-load(); render(PRE); paint(); bind();
+load(); render(PRE); applyEdits(); paint(); bind();
 if(new URLSearchParams(location.search).has('pdf')) document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
 </script>
 </body>
