@@ -164,6 +164,30 @@ h2{font-size:clamp(30px,5vw,46px);line-height:1.02;font-weight:800;letter-spacin
 .plano-c{display:none}
 @media (max-width:760px){.compact .shot .thumbs{width:104px}}
 
+/* VISUALIZAÇÃO AMPLIADA */
+.shot .thumbs{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:40;background:rgba(10,10,10,.97);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.lb.open{opacity:1;visibility:visible}
+.lb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;color:#fff;gap:12px}
+.lb-top .num{font-size:22px;font-weight:800;color:var(--brand);letter-spacing:-.02em}
+.lb-top .ato{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#a9a39c;margin-left:10px}
+.lb-x{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:20px;line-height:1}
+.lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;padding:0 56px;cursor:zoom-out}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;transform:scale(.96);transition:transform .35s cubic-bezier(.2,.7,.1,1)}
+.lb.open .lb-stage img{transform:none}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(10,10,10,.5);color:#fff;font-size:20px}
+.lb-prev{left:8px}.lb-next{right:8px}
+.lb-info{background:#141414;color:#fff;padding:16px 20px 20px;border-top:1px solid rgba(255,255,255,.08)}
+.lb-info .in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:10px 28px;align-items:start}
+.lb-info h4{font-size:18px;font-weight:800;letter-spacing:-.01em;grid-column:1/-1}
+.lb-info .k{font-size:13.5px;color:#cfcac4}.lb-info .k b{color:#fff}
+.lb-info .ap{font-size:13.5px;color:#e9e4de;background:#1f1f1f;border-radius:10px;padding:10px 12px}
+.lb-info .ap b{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);margin-bottom:3px}
+.lb-info .status{display:flex;gap:6px;flex-wrap:wrap;grid-column:1/-1;margin-top:4px}
+.lb-info .status .tag:not(.on){background:transparent;color:#8f8a83;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.lb-hint{font-size:11px;color:#77716b;text-align:center;padding:0 0 10px}
+@media (max-width:760px){.lb-stage{padding:0 8px}.lb-nav{top:auto;bottom:10px;transform:none}.lb-info .in{grid-template-columns:1fr}.lb-info{padding:14px 16px 18px;max-height:46vh;overflow:auto}}
+
 /* NICHO */
 .niche{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:28px}
 .ref{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
@@ -236,6 +260,10 @@ footer a{color:#fff}
 <nav class="nav" id="nav"><div class="wrap"><svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg><div class="links" id="navlinks"></div><span class="prog" id="navprog"></span><button class="ebtn" id="editNav">Editar</button></div></nav>
 <div id="app"></div>
 <div class="toast" id="toast"></div>
+<div class="lb" id="lb" aria-hidden="true"><div class="lb-top"><div><span class="num" id="lbNum"></span><span class="ato" id="lbAto"></span></div><button class="lb-x" id="lbX" aria-label="Fechar">×</button></div>
+<div class="lb-stage" id="lbStage"><img id="lbImg" alt=""><button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button><button class="lb-nav lb-next" id="lbNext" aria-label="Próxima">›</button></div>
+<div class="lb-info"><div class="in"><h4 id="lbT"></h4><div><p class="k"><b>Plano:</b> <span id="lbPl"></span></p><p class="k"><b>Movimento:</b> <span id="lbMv"></span></p><p class="k"><b>Onde:</b> <span id="lbOn"></span></p></div><div class="ap" id="lbApW"><b>Precisa aparecer</b><span id="lbAp"></span></div><div class="status" id="lbSt"></div></div></div>
+<p class="lb-hint">Toque na imagem para voltar à lista</p></div>
 <template id="logo-tpl"><svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg></template>
 
 <script>
@@ -1094,12 +1122,35 @@ function setEdit(on){
   ['editBtn','editNav'].forEach(id=>{ const b=document.getElementById(id); if(b){ b.classList.toggle('on',on); b.textContent=on?"Concluir":(id==='editNav'?"Editar":"Editar textos"); } });
   if(!on){ save(); applyEdits(); toast("Textos salvos neste aparelho"); }
 }
+let LB=-1, LBF=0;
+function lbShow(i,fig){
+  const vis=[...document.querySelectorAll('.shot:not(.hide)')]; if(!vis.length) return;
+  LB=(i+vis.length)%vis.length; const el=vis[LB], n=el.dataset.n, s=PRE.shots.find(x=>x.n===n);
+  const refs=s.refs||[]; LBF=Math.min(fig||0,Math.max(refs.length-1,0));
+  document.getElementById('lbImg').src=refs.length?refs[LBF].src:"";
+  const g=k=>{ const e=el.querySelector(`[data-k="shot.${n}.${k}"]`); return e?e.textContent:(s[k]||""); };
+  document.getElementById('lbNum').textContent=n; document.getElementById('lbAto').textContent=s.ato||"";
+  document.getElementById('lbT').textContent=g('titulo'); document.getElementById('lbPl').textContent=g('plano');
+  document.getElementById('lbMv').textContent=g('mov'); document.getElementById('lbOn').textContent=g('onde');
+  const ap=g('aparece'); document.getElementById('lbAp').textContent=ap; document.getElementById('lbApW').style.display=ap?"":"none";
+  const st=S.s[n]||"pendente";
+  document.getElementById('lbSt').innerHTML=STATUS.map(([k,l])=>`<button class="tag t-${k} ${k===st?'on':''}" data-lbs="${k}">${l}</button>`).join('');
+  const lb=document.getElementById('lb'); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function lbClose(){ const lb=document.getElementById('lb'); lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; LB=-1; }
 function applyFilter(){
   const on=document.querySelector('.fbtn.on'); const f=on?on.dataset.f:"todos";
   document.querySelectorAll('.shot').forEach(el=>el.classList.toggle('hide',f!=="todos"&&!el.classList.contains("st-"+f)));
 }
 function bind(){
   document.addEventListener('click',e=>{
+    const th=e.target.closest('.shot .thumbs');
+    if(th&&!EDIT){ const vis=[...document.querySelectorAll('.shot:not(.hide)')]; const fig=e.target.closest('figure'); lbShow(vis.indexOf(th.closest('.shot')), fig?[...th.querySelectorAll('figure')].indexOf(fig):0); return; }
+    if(e.target.id==="lbPrev"){ lbShow(LB-1); return; }
+    if(e.target.id==="lbNext"){ lbShow(LB+1); return; }
+    const lbs=e.target.closest('[data-lbs]');
+    if(lbs){ const vis=[...document.querySelectorAll('.shot:not(.hide)')]; const n=vis[LB].dataset.n; S.s[n]=lbs.dataset.lbs; save(); paint(); document.querySelectorAll('#lbSt .tag').forEach(t=>t.classList.toggle('on',t===lbs)); return; }
+    if(e.target.id==="lbX"||e.target.id==="lbImg"||e.target.id==="lbStage"){ lbClose(); return; }
     const b=e.target.closest('.status button');
     if(b){ const n=b.closest('.shot').dataset.n; S.s[n]=b.dataset.s; save(); paint(); applyFilter(); return; }
     const f=e.target.closest('.fbtn');
@@ -1115,6 +1166,10 @@ function bind(){
     if(e.target.id==="reset"){ if(confirm("Zerar o status de todos os planos e do checklist neste aparelho?")){ S.s={}; S.c={}; save(); paint(); applyFilter(); toast("Status zerado"); } }
   });
   document.addEventListener('input',e=>{ const el=e.target.closest('[data-k]'); if(el&&EDIT){ const v=el.textContent; if(v===el.dataset.orig) delete S.e[el.dataset.k]; else S.e[el.dataset.k]=v; save(); } });
+  document.addEventListener('keydown',e=>{ if(LB<0) return; if(e.key==="Escape") lbClose(); if(e.key==="ArrowRight") lbShow(LB+1); if(e.key==="ArrowLeft") lbShow(LB-1); });
+  let tx=null; const st=document.getElementById('lbStage');
+  st.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+  st.addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>50){ e.preventDefault(); lbShow(LB+(dx<0?1:-1)); } });
   document.addEventListener('keydown',e=>{ if(EDIT&&e.key==="Enter"&&!e.shiftKey&&e.target.closest('[data-k]')){ e.preventDefault(); e.target.blur(); } });
   document.addEventListener('change',e=>{ if(e.target.matches('.chk input')){ S.c[e.target.dataset.c]=e.target.checked; save(); } });
   if('IntersectionObserver' in window){
