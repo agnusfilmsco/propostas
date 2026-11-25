@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pré-produção · B.Stories · Agnus Films</title>
+<meta property="og:title" content="Pré-produção · B.Stories · Agnus Films">
+<meta property="og:description" content="Roteiro de gravação, shot list e ordem do dia.">
+<meta property="og:image" content="https://agnusfilmsco.github.io/propostas/preproducao/bstories-perfumaria/media/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Inter+Tight:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#f43a0f; --coral:#ef5941; --brown:#633523; --gray:#9b9b9b;
+  --ink:#0a0a0a; --ink-2:#4a4a4a; --paper:#f4f4f4; --card:#ffffff; --sand:#ece8e3; --line:#e2ddd7;
+  --font:"Helvetica Neue",Helvetica,"Inter Tight",Arial,sans-serif;
+  --serif:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.label{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+em.it{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
+.logo{display:block;height:auto}
+
+/* CAPA */
+.cover{padding:20px 0 0}
+.card-cover{background:var(--brand);color:#fff;border-radius:26px;padding:28px 28px 30px;position:relative;overflow:hidden;min-height:560px;display:flex;flex-direction:column}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.cover-top .logo{width:118px;color:#fff}
+.cover-top .label{color:#fff;opacity:.9;text-align:right;line-height:1.7}
+.cover h1{font-size:clamp(44px,8.6vw,92px);line-height:.92;font-weight:800;letter-spacing:-.04em;margin-top:auto;padding-top:120px;max-width:13ch;text-transform:none}
+.cover .sub{font-size:clamp(16px,2.2vw,19px);margin-top:20px;max-width:46ch;color:#fff;opacity:.95}
+.cover-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.45)}
+.cover-meta .label{font-size:9.5px;color:#fff;opacity:.8}
+.cover-meta p{font-size:16px;font-weight:700;margin-top:4px;line-height:1.25}
+.sheep{position:absolute;right:22px;bottom:22px;width:46px;height:46px;background:var(--ink);border-radius:6px;display:none}
+
+/* SEÇÕES */
+section{padding:64px 0 0}
+.sec-label{color:var(--brand)}
+h2{font-size:clamp(30px,5vw,46px);line-height:1.02;font-weight:800;letter-spacing:-.03em;margin-top:12px;max-width:20ch}
+.lead{color:var(--ink-2);margin-top:14px;max-width:62ch;font-size:17px}
+
+/* VISÃO GERAL */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.pillar{background:var(--sand);border-radius:20px;padding:22px 22px 26px}
+.pillar.dark{background:var(--ink);color:#fff}
+.pillar .label{color:var(--brand);font-size:9.5px}
+.pillar h3{font-size:22px;line-height:1.08;font-weight:800;letter-spacing:-.02em;margin-top:10px}
+.pillar p{font-size:14.5px;color:var(--ink-2);margin-top:10px}
+.pillar.dark p{color:#cfcac4}
+
+/* FALA */
+.script{margin-top:28px;display:grid;gap:14px}
+.act{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 24px 26px;display:grid;grid-template-columns:150px 1fr;gap:20px}
+.act .when .label{color:var(--gray);font-size:9.5px}
+.act .when h3{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.05;margin-top:6px}
+.act .when .time{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:#fff;background:var(--brand);border-radius:999px;padding:3px 10px}
+.act blockquote{font-size:clamp(19px,2.6vw,24px);line-height:1.3;font-weight:700;letter-spacing:-.015em}
+.act .img{font-size:14.5px;color:var(--ink-2);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.act .img b{color:var(--ink);font-weight:700}
+.alts{margin-top:14px;background:var(--ink);color:#fff;border-radius:20px;padding:22px 24px}
+.alts .label{color:var(--brand)}
+.alts ul{list-style:none;margin-top:10px;display:grid;gap:8px}
+.alts li{font-size:16px;color:#e9e4de}
+.alts li:before{content:"— ";color:var(--brand)}
+
+/* SHOT LIST */
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:28px}
+.shot{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.shot .thumbs{display:flex;background:var(--ink);aspect-ratio:9/12;overflow:hidden}
+.shot .thumbs img{flex:1;min-width:0;width:100%;height:100%;object-fit:cover;display:block}
+.shot .thumbs.none{align-items:center;justify-content:center;color:#777;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.shot .body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px}
+.shot .top{display:flex;justify-content:space-between;align-items:center}
+.shot .num{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
+.shot .ato{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+.shot h4{font-size:15px;font-weight:700;line-height:1.25}
+.shot .k{font-size:13px;color:var(--ink-2)}
+.shot .k b{color:var(--ink);font-weight:700}
+.shot .src{font-size:11px;color:var(--gray);margin-top:2px}
+
+/* REFERÊNCIAS DE NICHO */
+.niche{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:28px}
+.ref{background:var(--sand);border-radius:18px;padding:20px 22px}
+.ref h4{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.ref p{font-size:14px;color:var(--ink-2);margin-top:8px}
+.ref .tag{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brown)}
+
+/* ORDEM DO DIA */
+.timeline{margin-top:28px;background:var(--ink);color:#fff;border-radius:24px;padding:10px 26px}
+.slot{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.slot:last-child{border-bottom:0}
+.slot .h{font-size:17px;font-weight:800;color:var(--brand);letter-spacing:-.01em}
+.slot h4{font-size:16px;font-weight:700}
+.slot p{font-size:14px;color:#cfcac4;margin-top:4px}
+
+/* CHECKLIST + FICHA */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px}
+.box h3{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.box ul{list-style:none;margin-top:12px;display:grid;gap:10px}
+.box li{font-size:14.5px;color:var(--ink-2);padding-left:22px;position:relative}
+.box li:before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border:1.5px solid var(--brand);border-radius:3px}
+.box dl{margin-top:12px;display:grid;gap:10px}
+.box dt{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gray)}
+.box dd{font-size:15px;font-weight:700;margin-top:2px}
+
+/* RODAPÉ */
+footer{margin-top:72px;background:var(--brand);color:#fff;padding:56px 0 40px}
+footer .tag{font-size:clamp(28px,4.6vw,48px);line-height:1.05;font-weight:800;letter-spacing:-.03em;max-width:18ch}
+footer .tag em{font-family:var(--serif);font-style:italic;font-weight:500}
+footer .logo{width:100%;max-width:980px;color:#fff;margin-top:48px;opacity:1}
+footer .micro{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+footer a{color:#fff}
+
+@media (max-width:760px){
+  .card-cover{min-height:600px;padding:22px}
+  .pillars,.two{grid-template-columns:1fr}
+  .act{grid-template-columns:1fr;gap:12px}
+  .slot{grid-template-columns:1fr;gap:4px}
+  .shots{grid-template-columns:repeat(2,1fr);gap:10px}
+  .shot .body{padding:12px}
+  .shot h4{font-size:14px}
+}
+@media print{ section{break-inside:avoid} }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<template id="logo-tpl"><svg class="logo" viewBox="0 0 1920 341" fill="currentColor" role="img" aria-label="Agnus"><path d="Camada_1"/><path d="M105.25,322.76H10.25L144.72,13.03h109.32l134.48,309.73h-97.17l-22.99-56.39H126.94l-21.69,56.39ZM198.08,83.73l-44.25,113.22h88.49l-44.25-113.22Z"/><path d="M364.66,169.63c0-35.57,7.73-65.57,23.21-90.01,15.47-24.44,37.02-42.95,64.64-55.53,27.61-12.58,59.36-18.87,95.22-18.87,32.1,0,59.14,4.49,81.12,13.45,21.97,8.97,39.47,21.11,52.49,36.44,13.01,15.33,21.97,32.53,26.9,51.62l-93.7,8.68c-4.63-13.01-12.44-22.48-23.43-28.41-10.99-5.93-26.03-8.89-45.11-8.89-28.63,0-50.1,7.67-64.42,22.99-14.32,15.33-21.47,37.46-21.47,66.37,0,30.95,7.95,53.72,23.86,68.32,15.9,14.61,40.63,21.91,74.18,21.91,27.18,0,50.32-3.47,69.41-10.41v-36.01h-70.71v-65.94h156.6v143.15c-43.38,28.05-95,42.08-154.86,42.08s-109.32-13.95-143.15-41.86c-33.84-27.9-50.75-67.6-50.75-119.08Z"/><path d="M742.06,13.03h83.29l154.86,186.1V13.03h88.49v309.73h-83.29l-154.86-186.1v186.1h-88.49V13.03Z"/><path d="M1105.15,186.98V13.03h93.7v181.33c0,20.82,5.27,36.15,15.83,45.98,10.55,9.83,27.25,14.75,50.1,14.75s39.98-4.92,50.54-14.75c10.55-9.83,15.83-25.16,15.83-45.98V13.03h93.7v173.95c0,50.9-13.74,87.56-41.21,109.97-27.48,22.41-67.09,33.62-118.86,33.62s-90.95-11.2-118.43-33.62c-27.48-22.41-41.21-59.06-41.21-109.97Z"/><path d="M1665.17,233.83c0-7.23-3.19-13.08-9.54-17.57-6.37-4.48-16.78-7.73-31.23-9.76l-55.53-8.24c-42.8-6.65-73.96-17.79-93.48-33.4-19.52-15.62-29.28-37.01-29.28-64.2,0-30.07,13.67-53.5,40.99-70.27,27.33-16.77,64.99-25.16,113-25.16,88.78,0,138.52,31.09,149.23,93.27l-88.93,8.68c-4.63-12.72-11.86-21.91-21.69-27.55-9.84-5.64-23.72-8.46-41.64-8.46-19.09,0-33.77,2.32-44.03,6.94-10.27,4.63-15.4,11.28-15.4,19.95,0,7.23,2.75,12.73,8.24,16.48,5.49,3.76,15.62,6.8,30.37,9.11l67.67,10.85c40.19,6.36,69.26,17.14,87.19,32.32,17.93,15.18,26.9,36.51,26.9,63.99,0,32.97-13.31,57.84-39.91,74.61-26.61,16.77-65.79,25.16-117.56,25.16-101.8,0-156.02-36.15-162.67-108.45h91.96c5.49,28.35,29.21,42.51,71.14,42.51s64.2-10.26,64.2-30.8Z"/><path d="M1853.24,122.6c-30.21,0-54.79-24.58-54.79-54.79s24.58-54.79,54.79-54.79,54.79,24.58,54.79,54.79-24.58,54.79-54.79,54.79ZM1853.24,29.29c-21.25,0-38.53,17.28-38.53,38.53s17.28,38.53,38.53,38.53,38.53-17.28,38.53-38.53-17.28-38.53-38.53-38.53Z"/><path d="M1870.08,88.67c-3.88,3.74-9.2,5.6-15.96,5.6-7.33,0-13.23-2.42-17.7-7.27-4.47-4.85-6.7-11.27-6.7-19.26,0-7.57,2.26-13.86,6.77-18.87,4.52-5.01,10.53-7.52,18.05-7.52,6.01,0,11.04,1.7,15.11,5.11,4.07,3.41,6.31,7.73,6.74,12.98h-10.86c-.57-2.79-1.83-4.95-3.79-6.49-1.96-1.54-4.43-2.31-7.41-2.31s-5.66.86-7.77,2.59c-2.1,1.73-3.58,3.84-4.43,6.35-.85,2.51-1.28,5.25-1.28,8.23,0,5.2,1.21,9.35,3.62,12.45,2.41,3.1,5.65,4.65,9.72,4.65,6.76,0,10.62-3.78,11.56-11.35h11c-.57,6.34-2.79,11.37-6.67,15.11Z"/></svg></template>
+
+<script>
+/* ============ DADOS DO PROJETO (troque só este bloco) ============ */
+const PRE = {
+ "titulo": "B.Stories. O que vem (depois dos clássicos).",
+ "subtitulo": "Roteiro de gravação do vídeo com influenciador, com as falas, a shot list com referências e a ordem do dia na loja do ParkShopping.",
+ "data_doc": "Roteiro de gravação · Novembro 2026",
+ "meta": [
+  [
+   "Cliente",
+   "B.Stories Perfumaria"
+  ],
+  [
+   "Data / local",
+   "25 de novembro · 10h · ParkShopping"
+  ],
+  [
+   "Canal",
+   "Reels · vertical 9:16"
+  ],
+  [
+   "Duração",
+   "40 a 45 segundos"
+  ]
+ ],
+ "visao": {
+  "titulo": "Das grandes maisons ao (perfume raro).",
+  "texto": "O vídeo leva o público das fragrâncias que todo mundo conhece até a perfumaria de nicho, que quase ninguém encontra. A loja é o cenário e também o destino: o lugar onde Brasília descobre o que é exclusivo.",
+  "pilares": [
+   [
+    "1. Ideia",
+    "Uma subida.",
+    "Começa nos nomes que todos conhecem e termina nas casas de nicho. Cada passo dentro da loja é um degrau a mais de exclusividade."
+   ],
+   [
+    "2. Cena",
+    "Ele conduz, a loja brilha.",
+    "O influenciador fala para a câmera no estilo dos vídeos dele, mas dois terços do filme são perfume: vidro, tampa, borrifo e pele."
+   ],
+   [
+    "3. Clima",
+    "Silêncio e desejo.",
+    "Ritmo firme, câmera lenta nos detalhes, luz quente e contraluz. Nada de preço ou promoção em quadro: aqui é marca, não oferta."
+   ]
+  ]
+ },
+ "roteiro_intro": "Cerca de 80 palavras para caber em 40 a 45 segundos, com legendas de uma palavra por vez.",
+ "atos": [
+  {
+   "rotulo": "Ato 1",
+   "nome": "A provocação",
+   "tempo": "0 a 8 s",
+   "fala": "“Quando eu falo em perfume importado, qual nome vem na sua cabeça? Dior? Chanel? E o que existe depois deles? Vem comigo.”",
+   "imagem": "ele caminha em direção à câmera entre as prateleiras, a mão tira um frasco de grife, ele chama com a mão e vira para entrar na loja."
+  },
+  {
+   "rotulo": "Ato 2",
+   "nome": "A jornada",
+   "tempo": "8 a 35 s",
+   "fala": "“Aqui na B.Stories, as grandes maisons são só o começo. Mais adiante estão as casas de nicho: Creed, Parfums de Marly, Xerjoff. Fragrâncias raras, feitas em pequena escala, que quase ninguém encontra. Há mais de quinze anos, é aqui que Brasília descobre o que é exclusivo.”",
+   "imagem": "travelling pelas grifes, a estante de nicho surge imponente, um detalhe por marca, borrifo contra a luz, ele sente a fragrância e fala no balcão."
+  },
+  {
+   "rotulo": "Ato 3",
+   "nome": "A assinatura",
+   "tempo": "35 a 45 s",
+   "fala": "“Perfume de nicho não é pra ser notado. É pra ser lembrado. B.Stories.”",
+   "imagem": "borrifo no pulso em câmera lenta, um segundo de silêncio, close olhando para a lente, câmera se afasta, cartela com o logo."
+  }
+ ],
+ "alternativas": {
+  "titulo": "Outras opções para a frase do nicho, se o cliente preferir",
+  "itens": [
+   "“Criações raras, para quem coleciona assinaturas, não tendências.”",
+   "“Fragrâncias que poucas pessoas no mundo vão usar. E você pode ser uma delas.”",
+   "“O tipo de perfume que faz alguém perguntar: o que você está usando?”"
+  ]
+ },
+ "shots_intro": "Os frames são dos vídeos do próprio influenciador: o enquadramento e o movimento são os mesmos, só trocamos o carro pelo perfume.",
+ "shots": [
+  {
+   "n": "01",
+   "ato": "Ato 1",
+   "titulo": "Ele caminha para a câmera e faz a pergunta, apontando",
+   "plano": "Plano médio frontal",
+   "mov": "Câmera recua à frente dele (gimbal)",
+   "onde": "Corredor da loja",
+   "refs": [
+    "media/ref-h0.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:00"
+  },
+  {
+   "n": "02",
+   "ato": "Ato 1",
+   "titulo": "A mão tira um frasco de grife da prateleira",
+   "plano": "Plano detalhe",
+   "mov": "Câmera parada",
+   "onde": "Parede das grifes",
+   "refs": [
+    "media/ref-c37.jpg"
+   ],
+   "fonte": "Vídeo Citroën · 0:37"
+  },
+  {
+   "n": "03",
+   "ato": "Ato 1",
+   "titulo": "“Vem comigo”: gesto com a mão, ele vira e entra",
+   "plano": "Plano médio",
+   "mov": "Parada, depois segue por trás dele",
+   "onde": "Corredor rumo ao nicho",
+   "refs": [
+    "media/ref-h4.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:04"
+  },
+  {
+   "n": "04",
+   "ato": "Ato 2",
+   "titulo": "Ele passa pela parede das grandes maisons",
+   "plano": "Plano aberto",
+   "mov": "Travelling lateral da esquerda para a direita",
+   "onde": "Parede das grifes",
+   "refs": [
+    "media/ref-h32.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:32"
+  },
+  {
+   "n": "05",
+   "ato": "Ato 2",
+   "titulo": "A estante de nicho surge imponente",
+   "plano": "Contra-plongée (câmera baixa)",
+   "mov": "Câmera sobe devagar",
+   "onde": "Área de nicho",
+   "refs": [
+    "media/ref-h37.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:37"
+  },
+  {
+   "n": "06",
+   "ato": "Ato 2",
+   "titulo": "Um detalhe por marca no ritmo dos nomes",
+   "plano": "Plano detalhe macro",
+   "mov": "Slider lateral lento",
+   "onde": "Área de nicho",
+   "refs": [
+    "media/ref-h14.jpg",
+    "media/ref-c18.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:14 e Vídeo Citroën · 0:18"
+  },
+  {
+   "n": "07",
+   "ato": "Ato 2",
+   "titulo": "Borrifo na fita olfativa",
+   "plano": "Plano detalhe contra a luz",
+   "mov": "Câmera parada, câmera lenta",
+   "onde": "Balcão, luz atrás",
+   "refs": [
+    "media/ref-c39.jpg"
+   ],
+   "fonte": "Vídeo Citroën · 0:39"
+  },
+  {
+   "n": "08",
+   "ato": "Ato 2",
+   "titulo": "Ele sente a fragrância, fecha os olhos, sorri",
+   "plano": "Primeiro plano (close)",
+   "mov": "Câmera parada",
+   "onde": "Balcão",
+   "refs": [
+    "media/ref-h21.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:21"
+  },
+  {
+   "n": "09",
+   "ato": "Ato 2",
+   "titulo": "A consultora apresenta um frasco a ele",
+   "plano": "Over the shoulder",
+   "mov": "Câmera na mão, suave",
+   "onde": "Balcão",
+   "refs": [
+    "media/ref-c32.jpg"
+   ],
+   "fonte": "Vídeo Citroën · 0:32"
+  },
+  {
+   "n": "10",
+   "ato": "Ato 2",
+   "titulo": "“Há mais de quinze anos…” falando para a câmera",
+   "plano": "Plano médio",
+   "mov": "Aproximação lenta",
+   "onde": "Balcão com três frascos à frente",
+   "refs": [
+    "media/ref-h6.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:06"
+  },
+  {
+   "n": "11",
+   "ato": "Ato 2",
+   "titulo": "Selo de autenticidade na embalagem",
+   "plano": "Plano detalhe",
+   "mov": "Câmera parada",
+   "onde": "Balcão",
+   "refs": [
+    "media/ref-c11.jpg"
+   ],
+   "fonte": "Vídeo Citroën · 0:11"
+  },
+  {
+   "n": "12",
+   "ato": "Ato 3",
+   "titulo": "Borrifo no pulso",
+   "plano": "Plano detalhe contra a luz",
+   "mov": "Câmera parada, câmera lenta",
+   "onde": "Balcão",
+   "refs": [
+    "media/ref-c39.jpg"
+   ],
+   "fonte": "Mesma luz do plano 07"
+  },
+  {
+   "n": "13",
+   "ato": "Ato 3",
+   "titulo": "“É pra ser lembrado”, olhando para a lente",
+   "plano": "Close frontal",
+   "mov": "Câmera parada",
+   "onde": "Área de nicho desfocada",
+   "refs": [
+    "media/ref-h41.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:41"
+  },
+  {
+   "n": "14",
+   "ato": "Ato 3",
+   "titulo": "Ele no centro da loja",
+   "plano": "Plano médio para plano aberto",
+   "mov": "Câmera recua à frente dele",
+   "onde": "Corredor central",
+   "refs": [
+    "media/ref-h39.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:39"
+  },
+  {
+   "n": "15",
+   "ato": "Ato 3",
+   "titulo": "Cartela: B.Stories · ParkShopping · Pátio Brasil",
+   "plano": "Grafismo",
+   "mov": "—",
+   "onde": "Pós-produção",
+   "refs": [
+    "media/ref-h44.jpg"
+   ],
+   "fonte": "Vídeo Hyundai · 0:44"
+  }
+ ],
+ "nicho_titulo": "Como o luxo olfativo (se filma).",
+ "nicho_intro": "Os códigos visuais das campanhas de perfumaria de nicho que o filme adota, plano a plano.",
+ "nicho": [
+  {
+   "titulo": "O borrifo como protagonista",
+   "texto": "O borrifo vira uma nuvem dourada em câmera lenta, recortada pela contraluz. É o momento de maior desejo do filme.",
+   "tag": "Planos 07 e 12"
+  },
+  {
+   "titulo": "O frasco como joia",
+   "texto": "Macro com o foco correndo pelo vidro, pela tampa e pela gravação. Luz recortada, fundo escuro, nada de produto chapado.",
+   "tag": "Planos 02, 06 e 11"
+  },
+  {
+   "titulo": "Gesto e pele",
+   "texto": "O perfume só existe na pele: pulso, olhos fechados, respiração. Close lento, sem pressa.",
+   "tag": "Planos 08 e 12"
+  },
+  {
+   "titulo": "A loja como galeria",
+   "texto": "Estantes filmadas como acervo de museu: câmera baixa, simetria, luz quente. A loja aparece como destino, não como balcão de venda.",
+   "tag": "Planos 05 e 14"
+  }
+ ],
+ "ordem_intro": "A loja estará aberta ao público: os planos com ele são gravados quando não houver cliente ao fundo, e os detalhes ficam num canto do balcão.",
+ "ordem": [
+  [
+   "9h40",
+   "Chegada e montagem",
+   "Luz suave na frente e contraluz no balcão. Retirar etiquetas de preço e cartazes de Black Friday das áreas em quadro. Separar frascos e fitas."
+  ],
+  [
+   "10h00 · 10h20",
+   "Detalhes de produto",
+   "Planos 02, 06, 07 e 11, sem o influenciador. Ele passa o texto nesse tempo."
+  ],
+  [
+   "10h20 · 10h50",
+   "Cenas com ele",
+   "Planos 01, 03, 04, 05, 08, 09 e 10."
+  ],
+  [
+   "10h50 · 11h05",
+   "A assinatura",
+   "Planos 12, 13 e 14."
+  ],
+  [
+   "11h05 · 11h15",
+   "Locução e margem",
+   "Locução completa de segurança num canto silencioso e takes extras."
+  ]
+ ],
+ "checklist": [
+  "Confirmar Creed, Parfums de Marly e Xerjoff em estoque (se faltar, troca só o nome na fala)",
+  "Texto enviado ao influenciador antes de chegar",
+  "Figurino dele: camisa ou tricô escuro, sem logo grande, relógio",
+  "Consultora da loja disponível para o plano 09",
+  "Fitas olfativas e caixa com selo de autenticidade",
+  "Lapela, gimbal, slider, luz de contraluz e câmera lenta",
+  "Nenhum preço, promoção ou Black Friday em quadro"
+ ],
+ "ficha": [
+  [
+   "Cliente",
+   "B.Stories Perfumaria · desde 2009 · ParkShopping e Pátio Brasil"
+  ],
+  [
+   "Talento",
+   "Influenciador parceiro"
+  ],
+  [
+   "Direção, roteiro e captação",
+   "Agnus Films"
+  ],
+  [
+   "Formato",
+   "Reels 9:16 · 40 a 45 s"
+  ]
+ ],
+ "rodape": "Agnus Films · Pré-produção B.Stories · Novembro 2026"
+};
+/* ================================================================= */
+
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const it=s=>esc(s).replace(/\(([^)]+)\)/g,'<em class="it">($1)</em>');
+const LOGO=document.getElementById('logo-tpl').innerHTML.replace('<!--','').replace('-->','');
+function render(P){
+  const h=[];
+  h.push(`<header class="cover"><div class="wrap"><div class="card-cover">
+    <div class="cover-top">${LOGO}<span class="label">${esc(P.data_doc).replace(' · ','<br>')}</span></div>
+    <h1>${it(P.titulo)}</h1><p class="sub">${esc(P.subtitulo)}</p>
+    <div class="cover-meta">${P.meta.map(([k,v])=>`<div><span class="label">${esc(k)}</span><p>${esc(v)}</p></div>`).join('')}</div>
+  </div></div></header>`);
+  h.push(`<section><div class="wrap"><span class="label sec-label">Visão geral</span>
+    <h2>${it(P.visao.titulo||"O filme em três ideias.")}</h2><p class="lead">${esc(P.visao.texto)}</p>
+    <div class="pillars">${P.visao.pilares.map(([l,t,d],i)=>`<div class="pillar ${i==2?'dark':''}"><span class="label">${esc(l)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join('')}</div>
+  </div></section>`);
+  if(P.atos.length){
+    h.push(`<section><div class="wrap"><span class="label sec-label">Roteiro em três atos</span><h2>${it(P.roteiro_titulo||"O que ele fala e o que a gente mostra.")}</h2>
+    ${P.roteiro_intro?`<p class="lead">${esc(P.roteiro_intro)}</p>`:''}
+    <div class="script">${P.atos.map(a=>`<div class="act"><div class="when"><span class="label">${esc(a.rotulo)}</span><h3>${esc(a.nome)}</h3><span class="time">${esc(a.tempo)}</span></div>
+      <div><blockquote>${esc(a.fala)}</blockquote><p class="img"><b>Imagem:</b> ${esc(a.imagem)}</p></div></div>`).join('')}</div>
+    ${P.alternativas.itens.length?`<div class="alts"><span class="label">${esc(P.alternativas.titulo)}</span><ul>${P.alternativas.itens.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
+    </div></section>`);
+  }
+  if(P.shots.length){
+    h.push(`<section><div class="wrap"><span class="label sec-label">Shot list</span><h2>${it(P.shots_titulo||"Plano a plano, com referência.")}</h2>
+    ${P.shots_intro?`<p class="lead">${esc(P.shots_intro)}</p>`:''}
+    <div class="shots">${P.shots.map(s=>`<article class="shot">
+      ${s.refs&&s.refs.length?`<div class="thumbs">${s.refs.map(r=>`<img loading="lazy" src="${esc(r)}" alt="">`).join('')}</div>`:`<div class="thumbs none">sem referência</div>`}
+      <div class="body"><div class="top"><span class="num">${esc(s.n)}</span><span class="ato">${esc(s.ato)}</span></div>
+      <h4>${esc(s.titulo)}</h4><p class="k"><b>Plano:</b> ${esc(s.plano)}</p><p class="k"><b>Movimento:</b> ${esc(s.mov)}</p><p class="k"><b>Onde:</b> ${esc(s.onde)}</p>
+      ${s.fonte?`<p class="src">Ref.: ${esc(s.fonte)}</p>`:''}</div></article>`).join('')}</div></div></section>`);
+  }
+  if(P.nicho.length){
+    h.push(`<section><div class="wrap"><span class="label sec-label">Referências do nicho</span><h2>${it(P.nicho_titulo||"A linguagem do segmento.")}</h2>
+    ${P.nicho_intro?`<p class="lead">${esc(P.nicho_intro)}</p>`:''}
+    <div class="niche">${P.nicho.map(r=>`<div class="ref"><h4>${esc(r.titulo)}</h4><p>${esc(r.texto)}</p>${r.tag?`<span class="tag">${esc(r.tag)}</span>`:''}</div>`).join('')}</div></div></section>`);
+  }
+  if(P.ordem.length){
+    h.push(`<section><div class="wrap"><span class="label sec-label">Ordem do dia</span><h2>${it(P.ordem_titulo||"O dia de gravação.")}</h2>
+    ${P.ordem_intro?`<p class="lead">${esc(P.ordem_intro)}</p>`:''}
+    <div class="timeline">${P.ordem.map(([t,a,b])=>`<div class="slot"><span class="h">${esc(t)}</span><div><h4>${esc(a)}</h4><p>${esc(b)}</p></div></div>`).join('')}</div></div></section>`);
+  }
+  h.push(`<section><div class="wrap"><span class="label sec-label">Antes de gravar</span><h2>Checklist e ficha.</h2>
+    <div class="two"><div class="box"><h3>Checklist</h3><ul>${P.checklist.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="box"><h3>Ficha técnica</h3><dl>${P.ficha.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></div></div>
+  </div></section>`);
+  h.push(`<footer><div class="wrap"><p class="tag">Contando histórias que a <em>(flecha do tempo)</em> não pode apagar.</p>${LOGO}
+    <div class="micro"><span>${esc(P.rodape)}</span><a href="https://www.instagram.com/agnus_films/">@agnus_films</a></div></div></footer>`);
+  document.getElementById('app').innerHTML=h.join('');
+}
+render(PRE);
+</script>
+</body>
+</html>
