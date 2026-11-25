@@ -149,6 +149,21 @@ h2{font-size:clamp(30px,5vw,46px);line-height:1.02;font-weight:800;letter-spacin
 .t-pendente.on{background:#e2ddd7;color:var(--ink-2)}
 .shot .status button:active{transform:scale(.95)}
 
+/* LISTA COMPACTA */
+.compact .shots{grid-template-columns:1fr;gap:8px}
+.compact .shot{flex-direction:row;border-radius:14px}
+.compact .shot .thumbs{width:132px;flex:none;aspect-ratio:auto;min-height:100%}
+.compact .shot .thumbs figure:not(:first-child),.compact .shot .k,.compact .shot .ap,.compact .shot .src,.compact .shot .thumbs figcaption{display:none}
+.compact .shot .body{padding:10px 12px;gap:4px}
+.compact .shot .num{font-size:20px}
+.compact .shot h4{font-size:14px}
+.compact .shot .plano-c{display:block;font-size:12px;color:var(--ink-2)}
+.compact .shot .done{font-size:11px;letter-spacing:.12em}
+.compact .shot .status{padding-top:6px;gap:4px}
+.compact .shot .status .tag{font-size:9.5px;padding:4px 8px}
+.plano-c{display:none}
+@media (max-width:760px){.compact .shot .thumbs{width:104px}}
+
 /* NICHO */
 .niche{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:28px}
 .ref{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
@@ -212,6 +227,7 @@ footer a{color:#fff}
   .act{grid-template-columns:1fr;gap:12px}
   .slot{grid-template-columns:1fr;gap:4px}
   .shots{grid-template-columns:1fr}
+  .panel .legend{display:none}
 }
 @media print{.nav,.toast,.share{display:none}.rv{opacity:1;transform:none}}
 </style>
@@ -714,7 +730,7 @@ function render(P){
     <p class="pres" style="margin-top:18px">com</p><p class="big talent">${esc(P.creditos.com)}</p>
     <dl class="grid">${P.creditos.itens.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd class="${/a confirmar/i.test(v)?'tbd':''}">${esc(v)}</dd></div>`).join('')}</dl>
   </div></div></header>`);
-  h.push(`<section id="visao"><div class="wrap"><span class="label sec-label rv">Visão geral</span>
+  if(P.visao&&P.visao.texto) h.push(`<section id="visao"><div class="wrap"><span class="label sec-label rv">Visão geral</span>
     <h2 class="rv">${it(P.visao.titulo)}</h2><p class="lead rv">${esc(P.visao.texto)}</p>
     <div class="pillars">${P.visao.pilares.map(([l,t,d],i)=>`<div class="pillar rv ${i==2?'dark':''}" style="transition-delay:${i*.08}s"><span class="label">${esc(l)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join('')}</div>
   </div></section>`);
@@ -731,13 +747,13 @@ function render(P){
       <div class="filters">${[["todos","Todos"],...STATUS].map(([k,l],i)=>`<button class="fbtn ${i?'':'on'}" data-f="${k}">${l}</button>`).join('')}</div></div>
       <div class="bar"><i id="bar"></i></div>
       <div class="row"><div class="legend">${STATUS.map(([k,l])=>`<span class="tag t-${k}">${l}</span>`).join('')}</div>
-      <div style="display:flex;gap:8px"><button class="share ghost" id="reset">Zerar</button><button class="share" id="share">Copiar link atualizado</button></div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="share ghost" id="viewBtn">Lista compacta</button><button class="share ghost" id="reset">Zerar</button><button class="share" id="share">Copiar link atualizado</button></div></div>
       <p class="note">Toque na tag de cada plano para marcar. O status fica salvo neste aparelho; para mostrar à equipe ou ao cliente, use “Copiar link atualizado”: o link leva o status e os textos editados.</p>
     </div>
     <div class="shots">${P.shots.map(s=>`<article class="shot rv" data-n="${esc(s.n)}">
       <div class="thumbs">${(s.refs||[]).map(r=>`<figure><img loading="lazy" src="${esc(r.src)}" alt=""><figcaption class="${r.tipo==='Nicho'?'n':''}">${esc(r.tipo)}</figcaption></figure>`).join('')}<div class="done">✓ Gravado</div></div>
       <div class="body"><div class="top"><span class="num">${esc(s.n)}</span><span class="ato">${esc(s.ato)}</span></div>
-      <h4 data-k="shot.${esc(s.n)}.titulo">${esc(s.titulo)}</h4><p class="k"><b>Plano:</b> <span data-k="shot.${esc(s.n)}.plano">${esc(s.plano)}</span></p><p class="k"><b>Movimento:</b> <span data-k="shot.${esc(s.n)}.mov">${esc(s.mov)}</span></p><p class="k"><b>Onde:</b> <span data-k="shot.${esc(s.n)}.onde">${esc(s.onde)}</span></p>
+      <h4 data-k="shot.${esc(s.n)}.titulo">${esc(s.titulo)}</h4><span class="plano-c">${esc(s.plano)} · ${esc(s.onde)}</span><p class="k"><b>Plano:</b> <span data-k="shot.${esc(s.n)}.plano">${esc(s.plano)}</span></p><p class="k"><b>Movimento:</b> <span data-k="shot.${esc(s.n)}.mov">${esc(s.mov)}</span></p><p class="k"><b>Onde:</b> <span data-k="shot.${esc(s.n)}.onde">${esc(s.onde)}</span></p>
       ${s.aparece?`<div class="ap"><b>Precisa aparecer</b><span data-k="shot.${esc(s.n)}.aparece">${esc(s.aparece)}</span></div>`:''}
       ${s.fonte?`<p class="src">Ref.: ${esc(s.fonte)}</p>`:''}
       <div class="status">${STATUS.map(([k,l])=>`<button class="tag t-${k}" data-s="${k}">${l}</button>`).join('')}</div></div></article>`).join('')}</div>
@@ -796,6 +812,7 @@ function bind(){
     if(b){ const n=b.closest('.shot').dataset.n; S.s[n]=b.dataset.s; save(); paint(); applyFilter(); return; }
     const f=e.target.closest('.fbtn');
     if(f){ document.querySelectorAll('.fbtn').forEach(x=>x.classList.toggle('on',x===f)); applyFilter(); return; }
+    if(e.target.id==="viewBtn"){ const on=!document.body.classList.contains('compact'); document.body.classList.toggle('compact',on); e.target.textContent=on?"Cards completos":"Lista compacta"; try{localStorage.setItem(KEY+"-view",on?"c":"f")}catch(_){} return; }
     if(e.target.id==="editBtn"||e.target.id==="editNav"){ setEdit(!EDIT); return; }
     if(e.target.id==="restore"){ if(confirm("Voltar todos os textos para a versão original?")){ S.e={}; save(); applyEdits(); toast("Textos originais restaurados"); } return; }
     if(EDIT&&e.target.closest('.chk')&&e.target.closest('[data-k]')){ e.preventDefault(); return; }
@@ -817,6 +834,7 @@ function bind(){
 }
 
 load(); render(PRE); applyEdits(); paint(); bind();
+(function(){ let v=null; try{v=localStorage.getItem(KEY+"-view")}catch(_){} const on=v?v==="c":!!PRE.compacto; document.body.classList.toggle('compact',on); const b=document.getElementById('viewBtn'); if(b) b.textContent=on?"Cards completos":"Lista compacta"; })();
 if(new URLSearchParams(location.search).has('pdf')) document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
 </script>
 </body>
